@@ -1,6 +1,7 @@
 import notifyNewSubscriptionRepository from "../core/repositories/notifyNewSubscription.repository"
+import logger from '../logging/winstonLogger'
 import nodemailer from 'nodemailer'
-const nodemailerMock = require('nodemailer-mock')
+// const nodemailerMock = require('nodemailer-mock')
 
 export default class notifyNewSubscriptionRepo implements notifyNewSubscriptionRepository {
 
@@ -19,10 +20,10 @@ export default class notifyNewSubscriptionRepo implements notifyNewSubscriptionR
         this.getMailer().sendMail(realMailOptions, (err: any, response: any) => {
     
             if (err) {
-                console.log(err) //logger.info(err)
+                logger.error(err)
             }
     
-            console.log(response)
+            return response
         })
 
 

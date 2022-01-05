@@ -9,6 +9,9 @@ RUN npm install
 
 COPY ./ /usr/src/app
 
+RUN mkdir emailNotificationService_logs
+
+RUN chown node emailNotificationService_logs
 USER node
 
 EXPOSE 8082

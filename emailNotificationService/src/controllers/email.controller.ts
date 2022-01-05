@@ -1,13 +1,11 @@
 import { Request, Response } from 'express'
-import winston from 'winston'
+import logger from '../logging/winstonLogger'
 import notifyNewSubscription from '../core/interactors/index'
 
 const notifyCreatedSubscriptionController = async (request: Request, response: Response) => {
     
     // Extracting data from the request
     const subscribedClient = extractIncomingData(request)
-
-    // console.log(subscribedClient)
 
     try {
         // Executing the interactor function with the data
@@ -21,7 +19,7 @@ const notifyCreatedSubscriptionController = async (request: Request, response: R
 
     } catch (error: any) {
         response.status(400)
-        logger.info(error)
+        logger.error(error)
     }
 }
 
@@ -31,14 +29,6 @@ const extractIncomingData = (request: Request) => {
 
     return subscribedClient
 }
-
-let logger = winston.createLogger({
-    transports: [
-        new (winston.transports.File)({ 
-            filename: 'subscriptionService_logs/error.log' 
-        })
-    ]
-})
 
 
 export default { notifyCreatedSubscriptionController }

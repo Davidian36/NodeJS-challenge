@@ -1,7 +1,5 @@
 FROM nginx:1.21.4-alpine
 
-# Configuration
+# Copy custom configuration
 COPY ./default.conf /etc/nginx/conf.d/
 
-# Content
-# COPY ./*.html /usr/share/nginx/html

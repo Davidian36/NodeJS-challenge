@@ -1,7 +1,7 @@
 import dotenv from 'dotenv' 
 dotenv.config()
-import mysql from 'mysql'
-import winston from 'winston'
+import mysql from 'mysql2'
+import logger from '../logging/winstonLogger'
 
 export default class databaseAccess {
     private conn: any
@@ -10,8 +10,6 @@ export default class databaseAccess {
 
     public async connectToDB(): Promise<number> {
 
-        console.log(process.env.DB_HOST)
-        
         return new Promise((resolve, reject) => {
             try {
                 this.conn = mysql.createConnection({
@@ -20,12 +18,12 @@ export default class databaseAccess {
                     password: process.env.DB_PASSWORD,
                     database: process.env.DB_DATABASE
                 })
-                console.log('Connection established')
+                // console.log('Connection established')
                 resolve(1)
                 
             } catch (err: any) {
-                console.log('Connection error')
-                //logger.info(err)
+                // console.log('Connection error')
+                logger.error(err)
                 reject(0)
             }
         })
@@ -34,10 +32,11 @@ export default class databaseAccess {
     public async insertQuery(query: string, vars: object): Promise<number> {
         return new Promise((resolve, reject) => {
 
-            this.conn.query(query, vars, (err: any, result: any) => {
+            this.conn.query(query, vars, (err: string, result: any) => {
 
                 if (err) {
-                    console.log('query_error' + err) //logger.info(err)
+                    // console.log('query_error' + err) 
+                    logger.error(err)
                     reject(0)
                 }
 
@@ -49,10 +48,11 @@ export default class databaseAccess {
 
     public async deleteQuery(query: string, vars: object): Promise<number> {
         return new Promise((resolve, reject) => {
-            this.conn.query(query, vars, (err: any) => {
+            this.conn.query(query, vars, (err: string) => {
                 
                 if (err) {
-                    console.log('query_error' + err) //logger.info(err)
+                    // console.log('query_error' + err) 
+                    logger.error(err)
                     reject(0)
                 }
 
@@ -64,10 +64,11 @@ export default class databaseAccess {
     public async getQuery(query: string, vars: object): Promise<any> {
         return new Promise((resolve, reject) => {
 
-            this.conn.query(query, vars, (err: any, result: any) => {
+            this.conn.query(query, vars, (err: string, result: any) => {
 
                 if (err) {
-                    console.log('query_error' + err) //logger.info(err)
+                    // console.log('query_error' + err) 
+                    logger.error(err)
                     reject(0)
                 }
 
@@ -80,10 +81,11 @@ export default class databaseAccess {
     public async getAllQuery(query: string): Promise<any> {
         return new Promise((resolve, reject) => {
 
-            this.conn.query(query, (err: any, result: any) => {
+            this.conn.query(query, (err: string, result: any) => {
 
                 if (err) {
-                    console.log('query_error' + err) //logger.info(err)
+                    // console.log('query_error' + err) 
+                    logger.error(err)
                     reject(0)
                 }
 
@@ -93,17 +95,8 @@ export default class databaseAccess {
     }
 
     public async disconnectFromDB() {
-        return this.conn.end((err: any) => {
+        return this.conn.end((err: string) => {
 
         })
     }
 }
-
-
-// const logger = winston.createLogger({
-//     transports: [
-//         new (winston.transports.File)({ 
-//             filename: 'database_logs/error.log' 
-//         })
-//     ]
-// })
