@@ -16,7 +16,7 @@ In case you want to use a mysql container for the database:
 
   - $ sudo docker run -d --name mysql --network internal-bridge mysql/mysql-server:latest
 
-PD: You'll need to allow the Docker subscription container IP in the myql settings to be able to connect to the mysql container or to a local mysql server in the host machine
+PD: You'll need to allow the Docker subscription container IP in the mysql settings to be able to connect to the mysql container or to a local mysql server in the host machine
 
 The meaningfull dependencies used are:
 
