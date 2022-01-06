@@ -19,3 +19,14 @@ if you will use a mysql container for mysql:
 PD: You'll need to allow the Docker subscription container IP in the myql settings to be able to connect to the mysql container or to a local mysql server in the host machine
 
 The meaningfull dependencies used are:
+
+# Subscription microservice:
+  - Express (most popular and minimal Node.js framework)
+  - Mysql2 (latest mysql driver for Node.js)
+  - Axios (http requests library for Node.js)
+  - Dotenv (for loading environment variables into the process.env object)
+  - Cors (part of the security against CSRF attacks)
+  - Winston (production ready logging library for Node.js)
+
+# Mailing microservice:
+  - Nodemailer (emailing tool for Node.js)
