@@ -12,7 +12,7 @@ Once the Docker containers are built with the dependencies that will be listed b
   - $ sudo docker run -d -p 8081:8081 --name subscription-container --network internal-bridge subscription-service:1.0
   - $ sudo docker run -d -p 8082:8082 --name mailing-container --network internal-bridge email-service:1.0
 
-if you will use a mysql container for mysql:
+In case you want to use a mysql container for the database:
 
   - $ sudo docker run -d --name mysql --network internal-bridge mysql/mysql-server:latest
 
