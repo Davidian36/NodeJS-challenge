@@ -1,4 +1,6 @@
-subscriptionService/node_modules 
+subscriptionService/node_modules
+subscriptionService/coverage 
+subscriptionService/.env 
 emailNotificationService/node_modules 
-subscriptionService/.env
+emailNotificationService/coverage 
 emailNotificationService/.env

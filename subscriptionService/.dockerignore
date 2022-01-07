@@ -2,3 +2,4 @@
 .cache
 node_modules
 subscriptionService_logs
+coverage
