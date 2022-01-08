@@ -1,5 +1,5 @@
 import getAllSubscriptionsRepository from "../core/repositories/getAllSubscriptions.repository"
-import databaseAccess from '../dbaccess/databaseAccess.class'
+import { databaseAccess } from '../dbaccess/databaseAccess.class'
 
 export default class getAllSubscriptionsRepo implements getAllSubscriptionsRepository {
 

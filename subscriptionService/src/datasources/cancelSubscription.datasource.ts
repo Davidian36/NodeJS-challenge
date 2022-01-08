@@ -1,5 +1,5 @@
 import cancelSubscriptionRepository from "../core/repositories/cancelSubscription.repository"
-import databaseAccess from '../dbaccess/databaseAccess.class'
+import { databaseAccess } from '../dbaccess/databaseAccess.class'
 
 export default class cancelSubscriptionRepo implements cancelSubscriptionRepository {
 

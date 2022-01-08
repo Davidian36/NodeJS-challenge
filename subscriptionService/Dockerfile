@@ -15,7 +15,7 @@ COPY ./ /usr/src/app
 
 RUN mkdir subscriptionService_logs
 
-RUN chown node database_logs subscriptionService_logs
+RUN chown node subscriptionService_logs
 USER node
 
 EXPOSE 8081
