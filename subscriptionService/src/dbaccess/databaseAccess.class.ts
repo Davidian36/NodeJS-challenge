@@ -3,7 +3,7 @@ dotenv.config()
 import mysql from 'mysql2'
 import logger from '../logging/winstonLogger'
 
-export default class databaseAccess {
+export class databaseAccess {
     private conn: any
     static connectToDB: Function
     static queryDB: Function
