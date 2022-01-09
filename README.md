@@ -8,9 +8,9 @@ Once the Docker containers are built with the dependencies that will be listed b
 
     $ sudo docker network create internal-bridge --driver bridge
     $ sudo docker inspect internal-bridge
-    $ sudo docker run -d -p 80:80 --name nginxproxy --network internal-bridge nginx:1.0
-    $ sudo docker run -d -p 8081:8081 --name subscriptionServ --network internal-bridge subscription-serv:1.0
-    $ sudo docker run -d -p 8082:8082 --name mailingServ --network internal-bridge email-serv:1.0
+    $ sudo docker run -d -p 80:80 --name nginxproxyCont --network internal-bridge nginx:1.0
+    $ sudo docker run -d -p 8081:8081 --name subscriptionCont --network internal-bridge subscription-serv:1.0
+    $ sudo docker run -d -p 8082:8082 --name mailingCont --network internal-bridge email-serv:1.0
 
 In case you want to use a mysql container for the database:
 
