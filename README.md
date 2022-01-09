@@ -30,3 +30,6 @@ The meaningfull dependencies used are:
 
 # Mailing microservice:
   - Nodemailer (emailing tool for Node.js)
+
+# Here is the API Swagger documentation:
+  - https://app.swaggerhub.com/apis/Davidian36/subscription-service/1.0.0
