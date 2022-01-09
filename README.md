@@ -20,16 +20,29 @@ PD: You'll need to allow the Docker subscription container IP in the mysql setti
 
 The meaningfull dependencies used are:
 
-# Subscription microservice:
-  - Express (most popular and minimal Node.js framework)
-  - Mysql2 (latest mysql driver for Node.js)
-  - Axios (http requests library for Node.js)
-  - Dotenv (for loading environment variables into the process.env object)
-  - Cors (part of the security against CSRF attacks)
-  - Winston (production ready logging library for Node.js)
+<h3>Subscription microservice:</h3>
+    - Express (most popular and minimal Node.js framework)<br>
+    - Mysql2 (latest mysql driver for Node.js)<br>
+    - Axios (http requests library for Node.js)<br>
+    - Dotenv (for loading environment variables into the process.env object)<br>
+    - Cors (part of the security against CSRF attacks)<br>
+    - Winston (production ready logging library for Node.js)<br>
 
-# Mailing microservice:
+<h3>Mailing microservice:</h3>
   - Nodemailer (emailing tool for Node.js)
 
-# Here is the API Swagger documentation:
+<h3>Here is the API Swagger documentation:</h3>
   - https://app.swaggerhub.com/apis/Davidian36/subscription-service/1.0.0
+
+<h3>Important notes:</h3>
+
+The subscription service getSubscription GET route does not accept url parameters, because libraries client side (like axios for example) accept body parameters in json format which is preferable, however in the swagger documentation the routes accepts a parameter.
+
+There's no authentication system implemented with tokens to prevent CSRF attacks, because another container for creating access token and refresh tokens as well as their rotation should be created separately and it was not the purpose of this task.
+
+
+
+
+
+
+                                                                                                                                                                                                                         
