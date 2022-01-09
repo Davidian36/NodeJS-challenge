@@ -39,8 +39,8 @@ PD: You'll need to allow the Docker subscription container IP in the mysql setti
 <br></br>
 <h3>Important notes:</h3>
 
-The subscription service getSubscription GET route does not accept url parameters, because libraries client side (like axios for example) accept body parameters in json format which is preferable, however in the swagger documentation the routes accepts a parameter.
+The subscription service getSubscription GET route does not accept url parameters, because libraries client side (like axios for example) accept body parameters in json format which is preferable, however in the swagger documentation the route accepts a parameter.
 
-There's no authentication system implemented with tokens to prevent CSRF attacks, because another container for creating access token and refresh tokens as well as their rotation should be created separately and it was not the purpose of this task.
+There's no authentication system implemented with tokens to prevent CSRF attacks, because another container for creating access tokens and refresh tokens as well as their rotation should be created separately and it was not the purpose of this task.
 
-In the subscription service tests, the mysql functions like createConnection or query should als be mocked but I had no time left for this task.                                                                                                                                                                                
+In the subscription service tests, the mysql functions like createConnection or query should also be mocked but I had no time left for this task.                                                                                                                                                                                
