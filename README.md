@@ -6,19 +6,19 @@ It consists of a public NGINX service which connects to a backend subscription m
 
 Once the Docker containers are built with the dependencies that will be listed below, you can run the service linking the containers with a Docker internal-bridge:
 
-- $ sudo docker network create internal-bridge --driver bridge
-- $ sudo docker inspect internal-bridge
-- $ sudo docker run -d -p 80:80 --name nginxproxy --network internal-bridge nginx:1.0
-- $ sudo docker run -d -p 8081:8081 --name subscription-container --network internal-bridge subscription-service:1.0
-- $ sudo docker run -d -p 8082:8082 --name mailing-container --network internal-bridge email-service:1.0
+    $ sudo docker network create internal-bridge --driver bridge
+    $ sudo docker inspect internal-bridge
+    $ sudo docker run -d -p 80:80 --name nginxproxy --network internal-bridge nginx:1.0
+    $ sudo docker run -d -p 8081:8081 --name subscription-container --network internal-bridge subscription-service:1.0
+    $ sudo docker run -d -p 8082:8082 --name mailing-container --network internal-bridge email-service:1.0
 
 In case you want to use a mysql container for the database:
 
-- $ sudo docker run -d --name mysql --network internal-bridge mysql/mysql-server:latest
+    $ sudo docker run -d --name mysql --network internal-bridge mysql/mysql-server:latest
 
 PD: You'll need to allow the Docker subscription container IP in the mysql settings to be able to connect to the Mysql container or to a local Mysql server in the host machine
 
-<br></br>
+<br>
 <h3>The meaningfull dependencies used are:</h3>
 
 <h4>Subscription microservice:</h4>
