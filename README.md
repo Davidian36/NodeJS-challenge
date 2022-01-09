@@ -21,7 +21,7 @@ PD: You'll need to allow the Docker subscription container IP in the mysql setti
 <br>
 <h3>The meaningfull dependencies used are:</h3>
 
-<h2>Subscription microservice:</h2>
+<h4>Subscription microservice:</h4>
     - Express (most popular and minimal Node.js framework)<br>
     - Mysql2 (latest mysql driver for Node.js)<br>
     - Axios (http requests library for Node.js)<br>
@@ -29,7 +29,7 @@ PD: You'll need to allow the Docker subscription container IP in the mysql setti
     - Cors (part of the security against CSRF attacks)<br>
     - Winston (production ready logging library for Node.js)<br>
 
-<h2>Mailing microservice:</h2>
+<h4>Mailing microservice:</h4>
   - Nodemailer (emailing tool for Node.js)
 
 <br>
