@@ -40,9 +40,4 @@ The subscription service getSubscription GET route does not accept url parameter
 
 There's no authentication system implemented with tokens to prevent CSRF attacks, because another container for creating access token and refresh tokens as well as their rotation should be created separately and it was not the purpose of this task.
 
-
-
-
-
-
-                                                                                                                                                                                                                         
+In the subscription service tests, the mysql functions like createConnection or query should als be mocked but I had no time left for this task.                                                                                                                                                                                
