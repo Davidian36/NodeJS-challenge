@@ -3,9 +3,7 @@ import { databaseAccess } from '../dbaccess/databaseAccess.class'
 
 export default class getAllSubscriptionsRepo implements getAllSubscriptionsRepository {
 
-    public async getAllSubscriptions(
-        user_email: string, user_firstName: string, user_gender: string, user_birthDate: string,
-        consent_flag: number, newsletter_id: number): Promise<any> {
+    public async getAllSubscriptions(): Promise<any> {
 
         // Connect to db
         const db = new databaseAccess

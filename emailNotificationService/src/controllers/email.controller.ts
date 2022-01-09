@@ -6,21 +6,25 @@ import joi from 'joi'
   
 const notifyCreatedSubscriptionController = async (request: Request, response: Response) => {
     
-    // Extracting data from the request
+    // Extracting data from the request and validate it
     const subscribedClient = extractIncomingData(request)
+
+    if(!subscribedClient){
+        response.status(400) // Error with the sent data: bad request response
+    }
 
     try {
         // Executing the interactor function with the data
         const notified = await notifyNewSubscription(subscribedClient)
 
         if(!notified) {
-            response.status(500)
+            response.status(500) // False response: server error response
         }
 
-        response.status(201).json(notified)
+        response.status(250).json(notified) // All ok email delivered
 
     } catch (error: any) {
-        response.status(400)
+        response.status(500)
         logger.error(error)
     }
 }
@@ -55,12 +59,14 @@ const validateIncomingData = (subscribedClient: any) => {
         const result = schema.validate(dataToValidate)
         if (result.error) {
             logger.error(result.error.details[0].message)
+            return 0
         }
 
         return subscribedClient
 
     } catch (e) {
         logger.error(e)
+        return 0
     }
 }
 

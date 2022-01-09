@@ -20,15 +20,13 @@ import subscriptionController from './controllers/subscription.controller'
 
 
 // API endpoints
-app.get('/api/v1/', (req, res) => { res.send('hi api v1 here') })
+app.post('/api/v1/subsc/client/subscribe', subscriptionController.createSubscriptionController)
 
-app.post('/api/v1/subsc/subscribe', subscriptionController.createSubscriptionController)
+app.post('/api/v1/subsc/client/cancelSubscription', subscriptionController.cancelSubscriptionController)
 
-app.post('/api/v1/subsc/cancelSubscription', subscriptionController.cancelSubscriptionController)
+app.get('/api/v1/subsc/client/getSubscription', subscriptionController.getSubscriptionController)
 
-app.get('/api/v1/subsc/getSubscription', subscriptionController.getSubscriptionController)
-
-app.get('/api/v1/subsc/getAllSubscriptions', subscriptionController.getAllSubscriptionsController)
+app.get('/api/v1/subsc/admin/getAllSubscriptions', subscriptionController.getAllSubscriptionsController)
 
 
 const listenPort: number = 8081

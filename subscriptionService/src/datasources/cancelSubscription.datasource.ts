@@ -17,7 +17,7 @@ export default class cancelSubscriptionRepo implements cancelSubscriptionReposit
         }
 
         // First we get the id of the user with the info and then we delete the subscription in the subscriptions table
-        // (We could also set a column for the subscription state and update it for the cancellation)
+        // (We could also set a column for the subscription state and update it for the cancellation insted of deleting it)
 
         // As the purpose of this service is to cancel a subscription so we hardcode the user id here:
         let user_id = 1

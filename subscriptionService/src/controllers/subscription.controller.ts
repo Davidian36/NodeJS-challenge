@@ -11,6 +11,10 @@ const createSubscriptionController = async (request: Request, response: Response
     
     // Extracting data from the request
     const subscribedClient = extractIncomingData(request)
+    
+    if(!subscribedClient){
+        response.status(400) // Error with the sent data: bad request response
+    }
 
     try {
         // Executing the interactor function with the data
@@ -20,7 +24,7 @@ const createSubscriptionController = async (request: Request, response: Response
             response.status(500)
         }
 
-        response.status(201).json(subscriptionID)
+        response.status(201).json(subscriptionID) // All ok subscription created
 
     } catch (error: any) {
         response.status(500)
@@ -33,17 +37,19 @@ const cancelSubscriptionController = async (request: Request, response: Response
     // Extracting data from the request
     const subscribedClient = extractIncomingData(request)
 
+    if(!subscribedClient){
+        response.status(400) // Error with the sent data: bad request response
+    }
+
     try {
         // Executing the interactor function with the data
         const cancelSubscriptionRes = await cancelSubscription(subscribedClient)
         
-        // Answers 0 if the cancellation failed
         if(!cancelSubscriptionRes) {
             response.status(500)
         }
 
-        // Answers 1 if the cancellation was succesfull
-        response.status(201).json(cancelSubscriptionRes)
+        response.status(201).json(cancelSubscriptionRes) // All ok cancellation was succesfull
 
     } catch (error: any) {
         response.status(500)
@@ -56,17 +62,21 @@ const getSubscriptionController = async (request: Request, response: Response) =
     // Extracting data from the request
     const subscribedClient = extractIncomingData(request)
 
+    if(!subscribedClient){
+        response.status(400) // Error with the sent data: bad request response
+    }
+
     try {
         // Executing the interactor function with the data
         const subscriptionDetails = await getSubscription(subscribedClient)
         
-        // Answers 0 if the cancellation failed
         if(!subscriptionDetails) {
             response.status(500)
         }
+        
+        console.log(subscriptionDetails)
 
-        // Answers 1 if the cancellation was succesfull
-        response.status(200).json(subscriptionDetails)
+        response.status(200).json(subscriptionDetails) // All ok information extracted
 
     } catch (error: any) {
         response.status(500)
@@ -76,26 +86,22 @@ const getSubscriptionController = async (request: Request, response: Response) =
 
 const getAllSubscriptionsController = async (request: Request, response: Response) => {
     
-    // Extracting data from the request
-    const subscribedClient = extractIncomingData(request)
-
     try {
         // Executing the interactor function with the data
-        const allSubscriptionsDetails = await getAllSubscriptions(subscribedClient)
-        
-        // Answers 0 if the cancellation failed
+        const allSubscriptionsDetails = await getAllSubscriptions()
+
         if(!allSubscriptionsDetails) {
             response.status(500)
         }
 
-        // Answers 1 if the cancellation was succesfull
-        response.status(200).json(allSubscriptionsDetails)
+        response.status(200).json(allSubscriptionsDetails) // All ok information extracted
 
     } catch (error: any) {
         response.status(500)
         logger.error(error)
     }
 }
+
 
 const extractIncomingData = (request: Request) => {
     const { body } = request
