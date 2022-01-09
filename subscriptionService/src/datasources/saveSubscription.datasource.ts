@@ -42,7 +42,7 @@ export class saveNewSubscription implements saveSubscriptionRepository {
         return new Promise(async (resolve, reject) => {
 
             try {
-                const res = await axios.post('http://mailing-container:8082/api/v1/mail/notify_subscription', {
+                const res = await axios.post('http://mailing-cont:8082/api/v1/mail/notify_subscription', {
                     subscribedClient: {
                         user_email: user_email,
                         user_firstName: user_firstName,
