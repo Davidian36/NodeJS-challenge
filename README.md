@@ -18,6 +18,7 @@ In case you want to use a mysql container for the database:
 
 PD: You'll need to allow the Docker subscription container IP in the mysql settings to be able to connect to the Mysql container or to a local Mysql server in the host machine
 
+<br>
 The meaningfull dependencies used are:
 
 <h3>Subscription microservice:</h3>
