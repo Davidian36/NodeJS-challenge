@@ -18,7 +18,7 @@ In case you want to use a mysql container for the database:
 
 PD: You'll need to allow the Docker subscription container IP in the mysql settings to be able to connect to the Mysql container or to a local Mysql server in the host machine
 
-<br>
+<br></br>
 <h3>The meaningfull dependencies used are:</h3>
 
 <h4>Subscription microservice:</h4>
@@ -32,11 +32,11 @@ PD: You'll need to allow the Docker subscription container IP in the mysql setti
 <h4>Mailing microservice:</h4>
   - Nodemailer (emailing tool for Node.js)
 
-<br>
+<br></br>
 <h3>Here is the API Swagger documentation:</h3>
-  - https://app.swaggerhub.com/apis/Davidian36/subscription-service/1.0.0
+  https://app.swaggerhub.com/apis/Davidian36/subscription-service/1.0.0
 
-<br>
+<br></br>
 <h3>Important notes:</h3>
 
 The subscription service getSubscription GET route does not accept url parameters, because libraries client side (like axios for example) accept body parameters in json format which is preferable, however in the swagger documentation the routes accepts a parameter.
