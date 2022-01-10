@@ -1,3 +1,0 @@
-{"level":"info","message":{"accepted":["accepted"],"envelope":"envelope","messageId":"1c37533b04c4cc7d7ea991cb8adcb3eb10962827b7c17dfb","pending":["pending"],"rejected":["rejected"],"response":"nodemailer-mock success"}}
-{"level":"info","message":{"accepted":["accepted"],"envelope":"envelope","messageId":"066db1d1a7ba4fccbc15eaf7b03be149b3dff33d413f22d9","pending":["pending"],"rejected":["rejected"],"response":"nodemailer-mock success"}}
-{"level":"info","message":{"accepted":["accepted"],"envelope":"envelope","messageId":"9349fa2e7482429b3b44b8395b5d8d88215af3af9dea03e4","pending":["pending"],"rejected":["rejected"],"response":"nodemailer-mock success"}}

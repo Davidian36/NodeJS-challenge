@@ -113,22 +113,22 @@ const extractIncomingData = (request: Request) => {
 const validateIncomingData = (subscribedClient: any) => {
     try {
         const schema = joi.object().keys({
-          user_email: joi.string().email().required(),
-          user_firstName: joi.string().min(3).max(45).required(),
-          user_gender: joi.string().min(4).max(6).required(),
-          user_birthDate: joi.string().min(10).max(10).required(),
-          consent_flag: joi.string().min(1).max(1).required(),
-          newsletter_id: joi.string().min(1).max(1).required()
-        })
-    
-        const dataToValidate = {
-            user_email: subscribedClient.user_email,
-            user_firstName: subscribedClient.user_email,
-            user_gender: subscribedClient.user_email,
-            user_birthDate: subscribedClient.user_email,
-            consent_flag: subscribedClient.user_email,
-            newsletter_id: subscribedClient.user_email
-        }
+            user_email: joi.string().email().required(),
+            user_firstName: joi.string().min(3).max(45),
+            user_gender: joi.string().min(3).max(10),
+            user_birthDate: joi.string().min(10).max(10).required(),
+            consent_flag: joi.number().integer().min(1).max(1).required(),
+            newsletter_id: joi.number().integer().min(1).max(30).required()
+          })
+      
+          const dataToValidate = {
+              user_email: subscribedClient.user_email,
+              user_firstName: subscribedClient.user_firstName,
+              user_gender: subscribedClient.user_gender,
+              user_birthDate: subscribedClient.user_birthDate,
+              consent_flag: subscribedClient.consent_flag,
+              newsletter_id: subscribedClient.newsletter_id
+          }  
 
         const result = schema.validate(dataToValidate)
         if (result.error) {
