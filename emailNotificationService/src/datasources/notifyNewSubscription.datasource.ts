@@ -22,7 +22,7 @@ export default class notifyNewSubscriptionRepo implements notifyNewSubscriptionR
 
             // Real mail options
             const realMailOptions = {
-                from: '"Adidas_subscriptions" <' + process.env.EMAIL_USER + '>',
+                from: '"Subscriptions" <' + process.env.EMAIL_USER + '>',
                 to: user_email,
                 subject: 'Succesfully subscribed to newsletter',
                 text: user_firstName + ', thanks for the subscription to the newsletter...'
